@@ -1,0 +1,63 @@
+.update {
+  width: min(820px, 100%);
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--admin-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--admin-shadow);
+}
+
+.update h1 {
+  margin: 0;
+  color: var(--admin-text);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.update-items,
+.selector {
+  display: grid;
+  gap: 8px;
+}
+
+.update-input,
+.selector select {
+  width: min(560px, 100%);
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--admin-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--admin-text);
+  font-size: 14px;
+}
+
+.selector select {
+  max-width: 260px;
+  cursor: pointer;
+}
+
+.update-btn {
+  width: 150px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--admin-brand);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.2);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.update-btn:hover {
+  background: #0b5f59;
+}
+
+@media screen and (max-width: 620px) {
+  .update {
+    padding: 20px;
+  }
+}

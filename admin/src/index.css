@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --admin-bg: #f5f1ea;
+  --admin-surface: #ffffff;
+  --admin-text: #191714;
+  --admin-muted: #71685d;
+  --admin-line: #e4dacd;
+  --admin-brand: #0f766e;
+  --admin-accent: #d9461e;
+  --admin-shadow: 0 14px 34px rgba(44, 30, 18, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.1), transparent 30rem),
+    var(--admin-bg);
+  color: var(--admin-text);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--admin-brand) !important;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+  outline: none;
+}
