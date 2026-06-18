@@ -1190,8 +1190,8 @@ mailTransport = () =>
     port: 587,
     secure: false,
     auth: {
-      user: "rengoku.d.zoro09@gmail.com",
-      pass: "jtwccrhbnipioamz",
+      user: process.env.E_MAIL,
+      pass: process.env.E_PASS,
     },
   });
 
@@ -1241,7 +1241,7 @@ app.post("/signup", async (req, res) => {
   await user.save();
 
   mailTransport().sendMail({
-    from: "rengoku.d.zoro09@gmail.com",
+    from: process.env.E_MAIL,
     to: user.email,
     subject: "Verify your Email account",
     html: generateEmailTemplate(otp),
@@ -1298,7 +1298,7 @@ const sendCampaignEmails = async (recipients, subject, html) => {
   const results = await Promise.allSettled(
     uniqueRecipients.map((email) =>
       transporter.sendMail({
-        from: "rengoku.d.zoro09@gmail.com",
+        from: process.env.E_MAIL,
         to: email,
         subject,
         html,
@@ -1405,7 +1405,7 @@ app.post("/forgotpassword", async (req, res) => {
   const user = await Users.findOne({ email: Email });
   if (!user) res.json({ success: false });
   mailTransport().sendMail({
-    from: "emailverification@gmail.com",
+    from: process.env.E_MAIL,
     to: user.email,
     subject: "Reset your login password",
     text: `http://localhost:3000/reset-password/${user._id}`,
@@ -1463,7 +1463,7 @@ app.post("/verify", fetchuser, async (req, res) => {
   await user.save();
 
   mailTransport().sendMail({
-    from: "emailverification@gmail.com",
+    from: process.env.E_MAIL,
     to: user.email,
     subject: "Verification successful",
     html: generateEmailTemplate("verification successful"),
@@ -1497,7 +1497,7 @@ app.post("/login", async (req, res) => {
 
         await verificationToken.save();
         mailTransport().sendMail({
-          from: "emailverification@gmail.com",
+          from: process.env.E_MAIL,
           to: user.email,
           subject: "Verify your Email account",
           html: generateEmailTemplate(otp),
