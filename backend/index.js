@@ -50,9 +50,7 @@ app.post(
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(
-  "mongodb://satya_db_user:Uk6JfRgqTlthP2i3@ac-jfg5h1o-shard-00-00.fkauydv.mongodb.net:27017,ac-jfg5h1o-shard-00-01.fkauydv.mongodb.net:27017,ac-jfg5h1o-shard-00-02.fkauydv.mongodb.net:27017/Ecommerce_fullstack?ssl=true&replicaSet=atlas-orn0ee-shard-0&authSource=admin",
-);
+mongoose.connect(process.env.MONGODB_URI);
 
 // Helper function to create default cart
 const getDefaultCart = () => {
@@ -1280,7 +1278,10 @@ const fetchuser = async (req, res, next) => {
   }
 };
 
-const normalizeEmail = (email) => String(email || "").trim().toLowerCase();
+const normalizeEmail = (email) =>
+  String(email || "")
+    .trim()
+    .toLowerCase();
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -1585,7 +1586,10 @@ const scoreProduct = (product, engagement = {}) => {
 
 //Creating endpoint for new collection data
 app.get("/newcollection", async (req, res) => {
-  let products = await Product.find({ available: true }).sort({ date: -1, id: -1 });
+  let products = await Product.find({ available: true }).sort({
+    date: -1,
+    id: -1,
+  });
   let newcollections = products.slice(0, 8);
   console.log("New collection fetched");
   res.send(newcollections);
@@ -1607,7 +1611,9 @@ app.get("/popular", async (req, res) => {
         ...product.toObject(),
         popularityScore: scoreProduct(product, engagement),
       }))
-      .sort((a, b) => b.popularityScore - a.popularityScore || b.rating - a.rating)
+      .sort(
+        (a, b) => b.popularityScore - a.popularityScore || b.rating - a.rating,
+      )
       .slice(0, 6);
     return result;
   }, {});
@@ -1673,7 +1679,9 @@ app.get("/offers-for-you", async (req, res) => {
       })
       .filter(
         (product) =>
-          product.discountPercent > 0 || product.wishedByUser || product.recommended,
+          product.discountPercent > 0 ||
+          product.wishedByUser ||
+          product.recommended,
       )
       .sort((a, b) => b.offerScore - a.offerScore)
       .slice(0, 20);

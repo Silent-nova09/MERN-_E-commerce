@@ -1,0 +1,81 @@
+.popular {
+  width: var(--container);
+  margin: 0 auto 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+.popular-category {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.popular h1,
+.new-collections h1,
+.relatedproduct h1,
+.wishlist h1 {
+  color: var(--text);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  text-align: center;
+}
+
+.popular hr,
+.new-collections hr,
+.relatedproduct hr,
+.wishlist hr {
+  width: 86px;
+  height: 4px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--brand);
+}
+
+.popular-item {
+  width: 100%;
+  margin-top: 34px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 72px) / 4);
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding: 0 2px 14px;
+}
+
+.popular-item .item {
+  max-width: none;
+  scroll-snap-align: start;
+}
+
+.popular-item::-webkit-scrollbar {
+  height: 8px;
+}
+
+.popular-item::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--line);
+}
+
+@media screen and (max-width: 900px) {
+  .popular-item {
+    grid-auto-columns: calc((100% - 24px) / 2);
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .popular {
+    width: calc(100% - 20px);
+  }
+
+  .popular-item {
+    grid-auto-columns: 78%;
+    gap: 12px;
+  }
+}

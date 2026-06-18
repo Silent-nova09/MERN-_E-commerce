@@ -1,0 +1,33 @@
+.new-collections {
+  width: var(--container);
+  scroll-margin-top: 92px;
+  margin: 0 auto 94px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.collections {
+  width: 100%;
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media screen and (max-width: 900px) {
+  .collections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .new-collections {
+    width: calc(100% - 20px);
+  }
+
+  .collections {
+    gap: 12px;
+  }
+}

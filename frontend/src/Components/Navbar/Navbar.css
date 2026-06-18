@@ -1,0 +1,244 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px max(24px, calc((100vw - 1180px) / 2));
+  background: rgba(255, 250, 244, 0.92);
+  border-bottom: 1px solid rgba(231, 221, 208, 0.9);
+  box-shadow: 0 12px 35px rgba(44, 30, 18, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: max-content;
+}
+
+.nav-logo img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.nav-logo p {
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.nav-menu li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.nav-menu li:hover {
+  color: var(--text);
+  background: #fff4ea;
+}
+
+.nav-menu li hr {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 4px;
+  height: 3px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--brand);
+}
+
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.nav-login-cart button {
+  min-width: 104px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow-sm);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-login-cart button:hover {
+  border-color: rgba(217, 70, 30, 0.35);
+  color: var(--brand-dark);
+}
+
+.nav-login-cart > a {
+  position: relative;
+}
+
+.nav-login-cart img,
+.wishlist_icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.nav-login-cart img:hover,
+.wishlist_icon:hover {
+  transform: translateY(-2px);
+  filter: saturate(1.15);
+}
+
+.nav-cart-count {
+  min-width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  margin-left: -26px;
+  margin-top: -28px;
+  padding: 0 6px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(217, 70, 30, 0.3);
+}
+
+.nav-dropdown {
+  display: none;
+  width: 34px;
+  height: 34px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  rotate: -90deg;
+  transition: transform 180ms ease;
+}
+
+.nav-dropdown.open {
+  transform: rotate(90deg);
+}
+
+@media screen and (max-width: 980px) {
+  .navbar {
+    padding: 12px 18px;
+    gap: 14px;
+  }
+
+  .nav-logo p {
+    font-size: 22px;
+  }
+
+  .nav-menu {
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .nav-menu li {
+    min-width: 64px;
+    padding: 9px 10px;
+  }
+
+  .nav-login-cart {
+    gap: 10px;
+  }
+
+  .nav-login-cart button {
+    min-width: 82px;
+    height: 38px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .nav-dropdown {
+    display: block;
+    order: 2;
+  }
+
+  .nav-login-cart {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .nav-menu {
+    order: 4;
+    display: none;
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;
+    border-radius: var(--radius);
+  }
+
+  .nav-menu-visible {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    padding: 10px 12px;
+  }
+
+  .nav-logo img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-logo p {
+    font-size: 18px;
+  }
+
+  .nav-login-cart {
+    gap: 8px;
+  }
+
+  .nav-login-cart button {
+    min-width: 70px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .nav-login-cart img,
+  .wishlist_icon {
+    width: 26px;
+    height: 26px;
+  }
+}

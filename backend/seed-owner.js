@@ -5,13 +5,13 @@ const mongoose = require("mongoose");
 const [username, password, name = "Store Owner"] = process.argv.slice(2);
 
 if (!username || !password) {
-  console.error("Usage: node seed-owner.js <username> <password> [display-name]");
+  console.error(
+    "Usage: node seed-owner.js <username> <password> [display-name]",
+  );
   process.exit(1);
 }
 
-const connectionString =
-  "mongodb://satya_db_user:Uk6JfRgqTlthP2i3@ac-jfg5h1o-shard-00-00.fkauydv.mongodb.net:27017,ac-jfg5h1o-shard-00-01.fkauydv.mongodb.net:27017,ac-jfg5h1o-shard-00-02.fkauydv.mongodb.net:27017/Ecommerce_fullstack?ssl=true&replicaSet=atlas-orn0ee-shard-0&authSource=admin";
-
+mongoose.connect(process.env.MONGODB_URI);
 const Owner = mongoose.model("Owner", {
   username: {
     type: String,

@@ -1,0 +1,32 @@
+.relatedproduct {
+  width: var(--container);
+  margin: 0 auto 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.related-items {
+  width: 100%;
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media screen and (max-width: 900px) {
+  .related-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .relatedproduct {
+    width: calc(100% - 20px);
+  }
+
+  .related-items {
+    gap: 12px;
+  }
+}

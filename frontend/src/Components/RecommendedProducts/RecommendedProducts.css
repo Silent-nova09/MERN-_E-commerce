@@ -1,0 +1,160 @@
+.recommended-products {
+  width: var(--container);
+  margin: 48px auto 0;
+  padding: 30px 0 6px;
+}
+
+.recommended-products-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.recommended-products-kicker {
+  margin: 0 0 8px;
+  color: var(--brand-dark);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.recommended-products-header h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.05;
+}
+
+.recommended-products-state {
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 248, 239, 0.92), #ffffff);
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.recommended-products-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 280px);
+  gap: 18px;
+  overflow-x: auto;
+  padding: 8px 4px 14px;
+  scroll-snap-type: x proximity;
+}
+
+.recommended-products-carousel::-webkit-scrollbar {
+  height: 10px;
+}
+
+.recommended-products-carousel::-webkit-scrollbar-thumb {
+  background: rgba(161, 120, 72, 0.35);
+  border-radius: 999px;
+}
+
+.recommended-card {
+  scroll-snap-align: start;
+  border: 1px solid rgba(231, 221, 208, 0.95);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top left, rgba(217, 70, 30, 0.09), transparent 38%),
+    linear-gradient(180deg, rgba(255, 253, 249, 0.98), #ffffff);
+  box-shadow: var(--shadow-sm);
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.recommended-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(217, 70, 30, 0.28);
+  box-shadow: var(--shadow-md);
+}
+
+.recommended-card-imagewrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #f2ebe2;
+}
+
+.recommended-card-imagewrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recommended-card-score {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(29, 29, 27, 0.84);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.recommended-card-body {
+  padding: 18px 18px 20px;
+}
+
+.recommended-card-category {
+  margin: 0 0 8px;
+  color: var(--brand-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.recommended-card-body h3 {
+  min-height: 52px;
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.recommended-card-price {
+  margin: 14px 0 10px;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.recommended-card-reason {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 560px) {
+  .recommended-products {
+    width: calc(100% - 20px);
+    margin-top: 36px;
+  }
+
+  .recommended-products-carousel {
+    grid-auto-columns: minmax(220px, 84vw);
+    gap: 14px;
+  }
+
+  .recommended-card-body {
+    padding: 16px;
+  }
+
+  .recommended-card-body h3 {
+    min-height: 48px;
+    font-size: 16px;
+  }
+}

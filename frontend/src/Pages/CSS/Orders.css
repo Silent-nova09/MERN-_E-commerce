@@ -1,0 +1,144 @@
+.orders-page {
+  width: var(--container);
+  min-height: 60vh;
+  margin: 54px auto 90px;
+}
+
+.orders-page h1 {
+  margin-bottom: 26px;
+  color: var(--text);
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+}
+
+.orders-container {
+  display: grid;
+  gap: 16px;
+}
+
+.orders-empty {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.order-card {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow-sm);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.order-id,
+.order-date,
+.order-address {
+  margin: 0;
+}
+
+.order-id {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.order-date,
+.order-address {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.order-summary {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+.order-summary strong {
+  color: var(--brand-dark);
+  font-size: 18px;
+}
+
+.order-items {
+  display: grid;
+  gap: 12px;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow-sm);
+}
+
+.items-image {
+  width: 118px;
+  height: 136px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #f2ebe2;
+}
+
+.items-body {
+  display: grid;
+  gap: 8px;
+}
+
+.items-name {
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.items-price {
+  color: var(--brand-dark);
+  font-weight: 800;
+}
+
+.items-status {
+  width: max-content;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.1);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 520px) {
+  .orders-page {
+    width: calc(100% - 20px);
+  }
+
+  .items {
+    grid-template-columns: 84px 1fr;
+    padding: 12px;
+  }
+
+  .items-image {
+    width: 84px;
+    height: 100px;
+  }
+
+  .order-header {
+    display: grid;
+  }
+
+  .order-summary {
+    justify-items: start;
+  }
+}

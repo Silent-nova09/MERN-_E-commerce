@@ -1,0 +1,25 @@
+.breadcrum {
+  width: var(--container);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 34px auto 24px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.breadcrum img {
+  width: 12px;
+  opacity: 0.55;
+}
+
+@media screen and (max-width: 520px) {
+  .breadcrum {
+    width: calc(100% - 20px);
+    margin-top: 22px;
+    font-size: 12px;
+  }
+}
