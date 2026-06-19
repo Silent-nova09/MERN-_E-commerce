@@ -17,7 +17,7 @@
 //       try {
 //         setLoading(true);
 //         setError("");
-//         const response = await fetch("http://localhost:4000/admin/dashboard");
+//         const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/admin/dashboard`);
 //         if (!response.ok) {
 //           throw new Error(
 //             "Backend returned an error while loading dashboard data.",
@@ -41,7 +41,7 @@
 //   }, []);
 
 //   const exportUrl = useMemo(
-//     () => "http://localhost:4000/admin/powerbi/sales?format=csv",
+//     () => `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/admin/powerbi/sales?format=csv`,
 //     [],
 //   );
 
@@ -239,7 +239,7 @@ function Dashboard() {
         setLoading(true);
         setError("");
 
-        const response = await fetch("http://localhost:4000/admin/dashboard");
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/admin/dashboard`);
 
         if (!response.ok) {
           throw new Error(

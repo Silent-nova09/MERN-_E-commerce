@@ -24,7 +24,7 @@ function OffersForYou() {
           headers["auth-token"] = token;
         }
 
-        const response = await fetch("http://localhost:4000/offers-for-you", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/offers-for-you`, {
           headers,
         });
         const data = await response.json();

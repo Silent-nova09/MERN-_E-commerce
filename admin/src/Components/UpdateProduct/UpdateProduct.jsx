@@ -15,7 +15,7 @@ function UpdateProduct() {
   }  
 
   const handleClick = async() =>{
-    await fetch('http://localhost:4000/updateproduct',{
+    await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/updateproduct`,{
         method : 'POST',
         headers : {
           Accept : 'application/json',

@@ -22,7 +22,7 @@ function Listproduct() {
     try {
       setLoading(true);
       setError("");
-      const response = await fetch("http://localhost:4000/allproducts");
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/allproducts`);
       if (!response.ok) {
         throw new Error("Backend returned an error while loading products.");
       }
@@ -40,7 +40,7 @@ function Listproduct() {
   };
 
   const remove_product = async (id) => {
-    await fetch("http://localhost:4000/deleteproduct", {
+    await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/deleteproduct`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -75,7 +75,7 @@ function Listproduct() {
 
   const saveEdit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:4000/updateproduct", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/updateproduct`, {
       method: "POST",
       headers: {
         Accept: "application/json",

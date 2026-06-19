@@ -9,7 +9,7 @@ function LoginSignup() {
   const login = async()=>{
      console.log("login fn",formData);
      let responseData;
-    await fetch('http://localhost:4000/login',{
+    await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/login`,{
       method : 'POST',
       headers : {
         Accept : 'application/form-data',
@@ -33,7 +33,7 @@ function LoginSignup() {
   const signup = async()=>{
     console.log("signup fn",formData);
     let responseData;
-    await fetch('http://localhost:4000/signup',{
+    await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/signup`,{
       method : 'POST',
       headers : {
         Accept : 'application/form-data',

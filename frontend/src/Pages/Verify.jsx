@@ -16,7 +16,7 @@ function Verify() {
       console.log("verification",formData);
       let responseData;
       if(localStorage.getItem('auth-token')){
-      await fetch('http://localhost:4000/verify',{
+      await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/verify`,{
         method : 'POST',
         headers : {
           Accept : 'application/form-data',

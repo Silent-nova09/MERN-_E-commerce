@@ -21,7 +21,7 @@ function OwnerLogin({ onLogin }) {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:4000/ownerlogin", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/ownerlogin`, {
         method: "POST",
         headers: {
           Accept: "application/json",

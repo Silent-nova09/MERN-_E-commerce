@@ -13,7 +13,7 @@ function Popular() {
   const [popular,setpopular] = useState({})
 
   useEffect(() =>{
-    fetch('http://localhost:4000/popular')
+    fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/popular`)
     .then((resp) =>resp.json())
     .then((data) =>setpopular(data));
   },[])

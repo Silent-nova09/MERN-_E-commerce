@@ -21,7 +21,7 @@ function RecommendedProducts() {
         setLoading(true);
         setError("");
 
-        const response = await fetch("http://localhost:4000/recommendations", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/recommendations`, {
           method: "GET",
           headers: {
             Accept: "application/json",

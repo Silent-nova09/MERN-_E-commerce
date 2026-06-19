@@ -7,7 +7,7 @@ function Checkout() {
 
   const handleClick = async () => {
     try {
-      const res = await fetch("http://localhost:4000/payment", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/payment`, {
         method: "POST",
         headers: {
           "auth-token": `${localStorage.getItem("auth-token")}`,

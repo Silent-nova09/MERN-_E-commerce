@@ -16,7 +16,9 @@ const stripe = require("stripe")(
   process.env.SECRET_STRIPE_KEY || process.env.SECERT_STRIPE_KEY,
 );
 
-const port = 4000;
+const port = process.env.PORT || 4000;
+const backendUrl = process.env.BACKEND_URL || `http://localhost:${port}`;
+const frontendUrl = process.env.FRONTEND_URL || "http://localhost:3000";
 const app = express();
 
 // webhook for /after/payment
@@ -1147,7 +1149,7 @@ app.post("/upload", upload.single("product"), (req, res) => {
   }
   res.json({
     success: 1,
-    image_url: `http://localhost:${port}/images/${req.file.filename}`,
+    image_url: `${backendUrl}/images/${req.file.filename}`,
   });
 });
 
@@ -1383,9 +1385,8 @@ app.post("/payment", fetchuser, async (req, res) => {
         },
         quantity: item.quantity,
       })),
-      success_url:
-        "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "http://localhost:3000/cart",
+      success_url: `${frontendUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${frontendUrl}/cart`,
       metadata: {
         userId: req.user.id,
         shippingAddress: JSON.stringify(req.body.address || {}),
@@ -1408,7 +1409,7 @@ app.post("/forgotpassword", async (req, res) => {
     from: process.env.E_MAIL,
     to: user.email,
     subject: "Reset your login password",
-    text: `http://localhost:3000/reset-password/${user._id}`,
+    text: `${frontendUrl}/reset-password/${user._id}`,
   });
   res.json({
     success: true,

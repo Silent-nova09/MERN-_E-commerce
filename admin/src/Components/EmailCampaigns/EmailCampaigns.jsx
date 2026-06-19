@@ -40,7 +40,7 @@ function EmailCampaigns() {
   const fetchOverview = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:4000/admin/email/overview");
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:4000"}/admin/email/overview`);
       const data = await response.json();
       if (!data.success) throw new Error(data.errors || "Unable to load emails");
       setOverview(data);
@@ -70,7 +70,7 @@ function EmailCampaigns() {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/admin/email/send-newsletter",
+        `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/admin/email/send-newsletter`,
         {
           method: "POST",
           headers: {
@@ -99,7 +99,7 @@ function EmailCampaigns() {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/admin/email/send-wishlist-offer",
+        `${import.meta.env.VITE_API_URL || "http://localhost:4000"}/admin/email/send-wishlist-offer`,
         {
           method: "POST",
           headers: {

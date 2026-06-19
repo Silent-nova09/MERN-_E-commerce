@@ -10,7 +10,7 @@ function ForgotPassword() {
   }
 
   const clickHandler = async() =>{
-    await fetch('http://localhost:4000/forgotpassword',{
+    await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/forgotpassword`,{
         method : 'POST',
         headers : {
           Accept : 'application/json',

@@ -40,7 +40,7 @@ function ShopContextProvider(props) {
       return;
     }
 
-    const response = await fetch("http://localhost:4000/getcart", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/getcart`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -60,7 +60,7 @@ function ShopContextProvider(props) {
       return;
     }
 
-    const response = await fetch("http://localhost:4000/getwishlist", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/getwishlist`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -80,7 +80,7 @@ function ShopContextProvider(props) {
       return;
     }
 
-    const response = await fetch("http://localhost:4000/getwishlisticon", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/getwishlisticon`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -100,7 +100,7 @@ function ShopContextProvider(props) {
       return;
     }
 
-    const response = await fetch("http://localhost:4000/getorders", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/getorders`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -115,7 +115,7 @@ function ShopContextProvider(props) {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/allproducts")
+    fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/allproducts`)
       .then((resp) => resp.json())
       .then((data) => setAll_product(data));
 
@@ -130,7 +130,7 @@ function ShopContextProvider(props) {
   const addCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addtocart", {
+      fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/addtocart`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -145,7 +145,7 @@ function ShopContextProvider(props) {
   const addWishlist = (itemId) => {
     setwishlist((prev) => ({ ...prev, [itemId]: 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addtowishlist", {
+      fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/addtowishlist`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -164,7 +164,7 @@ function ShopContextProvider(props) {
   const addwishlistIcon = (itemId) => {
     setwishlistIcon((prev) => ({ ...prev, [itemId]: 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addwishlisticon", {
+      fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/addwishlisticon`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -179,7 +179,7 @@ function ShopContextProvider(props) {
   const deletewishlist = (itemId) => {
     setwishlist((prev) => ({ ...prev, [itemId]: 0 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/deletefromwishlist", {
+      fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/deletefromwishlist`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -194,7 +194,7 @@ function ShopContextProvider(props) {
   const deletewishlistIcon = (itemId) => {
     setwishlistIcon((prev) => ({ ...prev, [itemId]: 0 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/deletewishlisticon", {
+      fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/deletewishlisticon`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -209,7 +209,7 @@ function ShopContextProvider(props) {
   const removeCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/removefromcart", {
+      fetch(`${process.env.REACT_APP_API_URL || "http://localhost:4000"}/removefromcart`, {
         method: "POST",
         headers: {
           Accept: "application/json",
