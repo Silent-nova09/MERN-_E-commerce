@@ -35,7 +35,7 @@ function Item(props) {
           window.scrollTo(0, 0);
         }}
       >
-        <img src={props.image} alt="image"></img>
+        <img src={props.image} alt={props.name}></img>
       </Link>
       <p>{props.name}</p>
       <div className="item-prices">
@@ -52,18 +52,18 @@ function Item(props) {
             }}
             className="item-wishlist"
             src={wishlist_after}
+            alt="Remove from wishlist"
           ></img>
         ) : (
           <img
             onClick={() => {
-              {
-                localStorage.getItem("auth-token")
-                  ? handleclick2(`${props.id}`)
-                  : navigate("/login");
-              }
+              localStorage.getItem("auth-token")
+                ? handleclick2(`${props.id}`)
+                : navigate("/login");
             }}
             className="item-wishlist"
             src={wishlist_before}
+            alt="Add to wishlist"
           ></img>
         )}
       </div>

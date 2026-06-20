@@ -1,5 +1,5 @@
 import './Wishlist.css'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Item from '../Items/Item'
 import { ShopContext } from '../../Context/ShopContext';
 
@@ -19,6 +19,7 @@ function Wishlist() {
             if(wishlist[item.id] === 1){
                 return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>
             }
+            return null;
         })}
        </div>
     </div>

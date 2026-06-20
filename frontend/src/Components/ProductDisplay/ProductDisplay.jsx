@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./ProductDisplay.css";
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
@@ -33,13 +33,13 @@ function ProductDisplay(props) {
     <div className="productdisplay">
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-          <img src={product.image}></img>
-          <img src={product.image}></img>
-          <img src={product.image}></img>
-          <img src={product.image}></img>
+          <img src={product.image} alt={product.name}></img>
+          <img src={product.image} alt={product.name}></img>
+          <img src={product.image} alt={product.name}></img>
+          <img src={product.image} alt={product.name}></img>
         </div>
         <div className="productdisplay-img">
-          <img className="productdisplay-main-img" src={product.image}></img>
+          <img className="productdisplay-main-img" src={product.image} alt={product.name}></img>
           {wishlistIcon[product.id] === 1 ? (
             <img
               onClick={() => {
@@ -47,18 +47,18 @@ function ProductDisplay(props) {
               }}
               className="productdisplay-wishlist"
               src={wishlist_after}
+              alt="Remove from wishlist"
             ></img>
           ) : (
             <img
               onClick={() => {
-                {
-                  localStorage.getItem("auth-token")
-                    ? handleclick2(product.id)
-                    : navigate("/login");
-                }
+                localStorage.getItem("auth-token")
+                  ? handleclick2(product.id)
+                  : navigate("/login");
               }}
               className="productdisplay-wishlist"
               src={wishlist_before}
+              alt="Add to wishlist"
             ></img>
           )}
         </div>
@@ -97,11 +97,9 @@ function ProductDisplay(props) {
         </div>
         <button
           onClick={() => {
-            {
-              localStorage.getItem("auth-token")
-                ? addCart(product.id)
-                : navigate("/login");
-            }
+            localStorage.getItem("auth-token")
+              ? addCart(product.id)
+              : navigate("/login");
           }}
         >
           ADD TO CART
