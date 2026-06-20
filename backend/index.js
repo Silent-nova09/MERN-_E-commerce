@@ -29,10 +29,7 @@ app.post(
     console.log("In webhook");
     const sig = req.headers["stripe-signature"];
     const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-    console.log(
-      "Webhook secret prefix:",
-      process.env.STRIPE_WEBHOOK_SECRET?.substring(0, 10),
-    );
+
     let event;
 
     try {
